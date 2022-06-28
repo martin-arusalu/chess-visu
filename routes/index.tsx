@@ -1,11 +1,11 @@
 /** @jsx h */
 import { h } from "preact";
-import ChessBoard from "../islands/ChessBoard.tsx";
+import ChessBoardView from "../islands/ChessBoardView.tsx";
 
 export default function Home() {
   return (
     <div>
-      <ChessBoard />
+      <ChessBoardView />
     </div>
   );
 }

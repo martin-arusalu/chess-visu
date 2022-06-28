@@ -11,7 +11,7 @@ type Guess = {
   correct: boolean;
 }
 
-export default function ChessBoard() {
+export default function ChessBoardView() {
   const board = generateChessBoard()
   const [currentSquare, setCurrentSquare] = useState(randomSquare())
   const [elapsed, setElapsed] = useState(0)

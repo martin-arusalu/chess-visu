@@ -4,8 +4,8 @@
 
 import * as $0 from "./routes/color/index.tsx";
 import * as $1 from "./routes/index.tsx";
-import * as $$0 from "./islands/ChessBoard.tsx";
-import * as $$1 from "./islands/ColorGuesser.tsx";
+import * as $$0 from "./islands/ChessBoardView.tsx";
+import * as $$1 from "./islands/ColorGuesserView.tsx";
 
 const manifest = {
   routes: {
@@ -13,8 +13,8 @@ const manifest = {
     "./routes/index.tsx": $1,
   },
   islands: {
-    "./islands/ChessBoard.tsx": $$0,
-    "./islands/ColorGuesser.tsx": $$1,
+    "./islands/ChessBoardView.tsx": $$0,
+    "./islands/ColorGuesserView.tsx": $$1,
   },
   baseUrl: import.meta.url,
 };

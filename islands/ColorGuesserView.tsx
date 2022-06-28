@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { useState } from 'preact/hooks'
-import { ChessBoard, ChessSquare, SquareColor, SquareHex } from '../types/Chess.ts'
+import { ChessSquare, SquareColor, SquareHex } from '../types/Chess.ts'
 import { generateChessBoard, ranks, files } from '../utils/Board.ts'
 
 type Guess = {
@@ -11,7 +11,7 @@ type Guess = {
   correct: boolean;
 }
 
-export default function ColorGuesser() {
+export default function ColorGuesserView() {
   const board = generateChessBoard()
   const [currentSquare, setCurrentSquare] = useState(randomSquare())
   const [elapsed, setElapsed] = useState(0)
