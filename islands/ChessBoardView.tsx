@@ -62,9 +62,9 @@ export default function ChessBoardView() {
         <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
         <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
       </div>
-      <div>
+      <div style="margin: auto; width: min(calc(100vw - 16px), calc(100vh - 300px))">
         {[...ranks].reverse().map(rank => (
-          <div style="display: grid; grid-template-columns: repeat(8, 1fr); height: calc(100vw / 8)">
+          <div style="display: grid; grid-template-columns: repeat(8, 1fr); height: calc(min(calc(100vw - 16px), calc(100vh - 300px)) / 8)">
             {[...files].map(file => {
               const square = board[`${file}${rank}`]
               const squareBackground = SquareHex[square.color]
