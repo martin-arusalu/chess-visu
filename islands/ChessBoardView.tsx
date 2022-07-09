@@ -1,8 +1,9 @@
 /** @jsx h */
 import { h } from "preact";
-import { useState } from 'preact/hooks'
-import { SquareName, ChessBoard, ChessSquare, SquareColor, SquareHex } from '../types/Chess.ts'
-import { generateChessBoard, ranks, files } from '../utils/Board.ts'
+import { useState } from 'preact/hooks';
+import { SquareName, ChessSquare, SquareColor, SquareHex } from '../types/Chess.ts';
+import { generateChessBoard, ranks, files } from '../utils/Board.ts';
+import { tw } from "@twind";
 
 type Guess = {
   duration: number;
@@ -55,14 +56,10 @@ export default function ChessBoardView() {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <div>
-        <h2>Correct: {guesses.filter(guess => !!guess.correct).length}</h2>
-        <h2>Total: {guesses.length}</h2>
-        <h1>Current: {currentSquare.file + currentSquare.rank}</h1>
-        <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
-        <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
+      <div class={tw`pt-10`}>
+        <h1 class={tw`text(6xl) font-bold`}>{currentSquare.file + currentSquare.rank}</h1>
       </div>
-      <div style="margin: auto; width: min(calc(100vw - 16px), calc(100vh - 300px))">
+      <div class={tw`py-10`} style="margin: auto; width: min(calc(100vw - 16px), calc(100vh - 300px))">
         {[...ranks].reverse().map(rank => (
           <div style="display: grid; grid-template-columns: repeat(8, 1fr); height: calc(min(calc(100vw - 16px), calc(100vh - 300px)) / 8)">
             {[...files].map(file => {
@@ -82,6 +79,10 @@ export default function ChessBoardView() {
           </div>
         ))}
       </div>
+      <h2>Correct: {guesses.filter(guess => !!guess.correct).length}</h2>
+      <h2>Total: {guesses.length}</h2>
+      <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
+      <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
     </div>
   );
 }

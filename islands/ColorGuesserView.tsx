@@ -1,6 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { useState } from 'preact/hooks'
+import { tw } from "@twind";
 import { ChessSquare, SquareColor, SquareHex } from '../types/Chess.ts'
 import { generateChessBoard, ranks, files } from '../utils/Board.ts'
 
@@ -55,14 +56,10 @@ export default function ColorGuesserView() {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <div>
-        <h2>Correct: {guesses.filter(guess => !!guess.correct).length}</h2>
-        <h2>Total: {guesses.length}</h2>
-        <h1>Current: {currentSquare.file + currentSquare.rank}</h1>
-        <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
-        <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
+      <div class={tw`pt-10`}>
+        <h1 class={tw`text(6xl) font-bold`}>{currentSquare.file + currentSquare.rank}</h1>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr)">
+      <div class={tw`py-10`} style="display: grid; grid-template-columns: repeat(2, 1fr)">
         <div
           onClick={() => guessColor(SquareColor.light)}
           style={`background-color: ${SquareHex.light}; color: ${SquareHex.dark}; padding: 100px 0`}
@@ -75,6 +72,12 @@ export default function ColorGuesserView() {
         >
           Dark
         </div>
+      </div>
+      <div>
+        <h2>Correct: {guesses.filter(guess => !!guess.correct).length}</h2>
+        <h2>Total: {guesses.length}</h2>
+        <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
+        <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
       </div>
     </div>
   );

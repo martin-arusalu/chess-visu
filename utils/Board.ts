@@ -16,8 +16,8 @@ export function generateChessBoard(): ChessBoard {
   }
 
   function isChessBoard(board: Partial<ChessBoard> | ChessBoard): board is ChessBoard {
-    for (let file of files) {
-      for (let rank of ranks) {
+    for (const file of files) {
+      for (const rank of ranks) {
         if (board[`${file}${rank}`] === undefined) return false
       }
     }
