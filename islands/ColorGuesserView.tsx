@@ -54,6 +54,10 @@ export default function ColorGuesserView() {
     setElapsed(Date.now() - start)
   }
 
+  function handleBoard() {
+    window.location.href = '/';
+  }
+
   return (
     <div style={{ textAlign: 'center' }}>
       <div class={tw`pt-10`}>
@@ -79,6 +83,12 @@ export default function ColorGuesserView() {
         <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
         <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
       </div>
+      <button
+        class={tw`bg-gray-600 hover:bg-gray-500 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 text-white font-bold py-2 px-8 mt-1 rounded-full`}
+        onClick={handleBoard}
+      >
+        Square guesser
+      </button>
     </div>
   );
 }

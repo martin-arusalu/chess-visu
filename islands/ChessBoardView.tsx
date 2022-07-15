@@ -54,12 +54,16 @@ export default function ChessBoardView() {
     setElapsed(Date.now() - start)
   }
 
+  function handleColor() {
+    window.location.href = '/color';
+  }
+
   return (
     <div style={{ textAlign: 'center' }}>
-      <div class={tw`pt-10`}>
+      <div class={tw`pt-8`}>
         <h1 class={tw`text(6xl) font-bold`}>{currentSquare.file + currentSquare.rank}</h1>
       </div>
-      <div class={tw`py-10`} style="margin: auto; width: min(calc(100vw - 16px), calc(100vh - 300px))">
+      <div class={tw`py-6`} style="margin: auto; width: min(calc(100vw - 16px), calc(100vh - 300px))">
         {[...ranks].reverse().map(rank => (
           <div style="display: grid; grid-template-columns: repeat(8, 1fr); height: calc(min(calc(100vw - 16px), calc(100vh - 300px)) / 8)">
             {[...files].map(file => {
@@ -83,6 +87,12 @@ export default function ChessBoardView() {
       <h2>Total: {guesses.length}</h2>
       <p>Elapsed: {(elapsed / 1000).toFixed(2)}</p>
       <p>Average time: {(averageTime / 1000).toFixed(2)}</p>
+      <button
+        class={tw`bg-gray-600 hover:bg-gray-500 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 text-white font-bold py-2 px-8 mt-1 rounded-full`}
+        onClick={handleColor}
+      >
+        Color guesser
+      </button>
     </div>
   );
 }
